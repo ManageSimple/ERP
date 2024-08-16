@@ -1,15 +1,11 @@
 import React, { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom' ; 
+import RegistrationForm from "../components/RegistrationForm";
+
+
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [data , setdata] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/api/users") 
-     .then(response => response.json()) 
-     .then(setdata => data ) 
-     .catch(error => console.error("there was an error retrieving data"))
-  } ,[]);
+  const [data , setUser] = useState([]);
 
   const Loginfunc = async (event) =>{
     event.preventDefault();
@@ -28,6 +24,7 @@ const LoginPage = () => {
     const result = await response.json();
   
     if(response.ok){
+      setUser(result);
       navigate("/teacher");
       console.log("login confirmed")
     }else{
@@ -60,7 +57,6 @@ const LoginPage = () => {
             name="email"
             type="email" 
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
             />
           </div>
           <div className="mb-4">
@@ -72,16 +68,16 @@ const LoginPage = () => {
             type="password"
             name="password"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
             />
           </div>
           <button
            type="submit"
-           className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+           className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-2"
           >
           Login
           </button>
         </form>
+        <RegistrationForm/>
       </div>
     </section>
     </>

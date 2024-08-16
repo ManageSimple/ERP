@@ -20,12 +20,22 @@ const LoginCard = ({ role, photo, onSubmit }) => {
 };
 
 const FacultyLogin = () => {
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    // Handle login logic here
+    try{
+      const checker = await fetch("http://localhost:3001/api/users", {
+
+      })
+    }catch(error){
+
+    }
   };
 
+const handleSubmit = () => {
+
+}
   return (
+    <>
     <div className="flex flex-wrap justify-center gap-6 mt-24 mb-56">
       <LoginCard 
         role="Head of Department" 
@@ -43,7 +53,45 @@ const FacultyLogin = () => {
         onSubmit={handleLogin} 
       />
     </div>
+    </>
   );
 };
 
 export default FacultyLogin;
+
+
+
+
+
+
+
+
+// import { useEffect, useState } from "react";
+
+// function FacultyLogin(){
+    
+//   const [data , setData] = useState(null);
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//     .then((response) => response.json())
+//     .then((data) => setData(data))
+//     .catch((error) => console.error("there was an error in getting data", error))
+//   },[]);
+//     return(
+//         <>
+//           <div>
+//               {data ? (
+//                 <ul>
+//                   {data.map((user)=>(
+//                     <li key={user.id}>{user.name}</li>
+//                   ))}
+//                 </ul>
+//               ):(
+//                 <p>user not found</p>
+//               )}  
+//           </div>
+//         </>
+//     )
+// }
+
+// export default FacultyLogin;

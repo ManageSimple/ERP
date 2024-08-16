@@ -1,7 +1,7 @@
 const HeaderComponent = () => {
     return (
         <header className="bg-white text-black pb-8">
-            <div className="container mx-auto py-4 flex flex-col lg:flex-row items-center lg:space-x-8 border-b border-gray-200">
+            <div className="container mx-auto py-4 flex flex-col lg:flex-row items-center lg:justify-between border-b border-gray-200">
                 {/* Logo Section */}
                 <img src="/images/ADYPSOE_logo.webp" alt="logo" className="h-24 mb-4 lg:mb-0" />
 
@@ -10,6 +10,13 @@ const HeaderComponent = () => {
                     <span className="text-2xl font-serif font-bold">
                         Ajeenkya DY Patil School of Engineering
                     </span>
+                </div>
+
+                    {/* User Icon Section */}
+                <div className="hidden lg:flex items-center space-x-4">
+                    <button onClick={<userDetails/>}>
+                        <img src="/images/userImg.jpg" alt="userLogo" className="h-24"/>
+                    </button>
                 </div>
             </div>
             <nav className="container mx-auto py-4">
